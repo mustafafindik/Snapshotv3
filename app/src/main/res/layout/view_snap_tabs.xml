@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    tools:layout_gravity="bottom"
+    tools:background="@color/light_purple"
+    >
+    
+    <ImageView
+        android:id="@+id/capture_photo_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="70dp"
+        android:src="@drawable/capture_photo_circle"/>
+
+    <ImageView
+        android:id="@+id/chat_btn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_gravity="bottom|start"
+        android:src="@drawable/ic_chat_bubble_24dp"
+        />
+
+    <ImageView
+        android:id="@+id/story_btn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="30dp"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_story_24dp"/>
+</FrameLayout>
