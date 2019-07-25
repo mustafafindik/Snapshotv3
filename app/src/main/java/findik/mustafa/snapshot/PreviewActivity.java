@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.zomato.photofilters.imageprocessors.Filter;
 
@@ -17,7 +18,11 @@ import findik.mustafa.snapshot.fragments.FragmentFilter;
 import findik.mustafa.snapshot.utils.FilteredImageItem;
 import findik.mustafa.snapshot.utils.SampleFilters;
 
-public class PreviewActivity extends AppCompatActivity {
+public class PreviewActivity extends AppCompatActivity
+{
+
+    int COUNT = 0;
+
 
     static {
         System.loadLibrary("NativeImageProcessor");
@@ -31,19 +36,41 @@ public class PreviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preview);
+
+        final ViewPager viewPager =  findViewById(R.id.vpPager);
+
         final ImageView mPhotoEditorView = findViewById(R.id.imageView);
         mPhotoEditorView.setImageBitmap(CameraFragment.bitmap);
         FilterHolder();
         SetFilters();
 
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.vpPager);
         FilterAdapter pagerAdapter = new FilterAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
+
+
+        COUNT = pagerAdapter.getCount();
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                FragmentFilter fragment = (FragmentFilter) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.vpPager + ":" + position);
+
+                ImageView btndnload=  fragment.getView().findViewById(R.id.image_download);
+                ImageView btncncel=  fragment.getView().findViewById(R.id.image_cancel);
+                ImageView btnsend=  fragment.getView().findViewById(R.id.image_send);
+
+                if ( positionOffset==0.00f ){
+                    btndnload.setAlpha(1-positionOffset);
+                    btncncel.setAlpha(1-positionOffset);
+
+                    btnsend.setAlpha(1-positionOffset);
+                }else{
+                    btndnload.setAlpha((float) Math.pow(positionOffset, 20));
+                    btncncel.setAlpha((float) Math.pow(positionOffset, 20));
+
+                    btnsend.setAlpha((float) Math.pow(positionOffset, 20));
+                }
 
 
             }
@@ -52,7 +79,11 @@ public class PreviewActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 FragmentFilter fragment = (FragmentFilter) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.vpPager + ":" + position);
                 fragment.HideText();
+                ImageView btn=  fragment.getView().findViewById(R.id.image_download);
+
                 mPhotoEditorView.setImageBitmap(FilteredImageList.get(position));
+
+
             }
 
             @Override
@@ -108,8 +139,18 @@ public class PreviewActivity extends AppCompatActivity {
     }
 
 
+    public void DownloadIamge() {
+        Toast.makeText(this, "İndirme", Toast.LENGTH_SHORT).show();
+    }
 
+    public void Closeamge() {
+        onBackPressed();
+        Toast.makeText(this, "İptal", Toast.LENGTH_SHORT).show();
+    }
 
+    public void SendImage() {
+        Toast.makeText(this, "Göderme", Toast.LENGTH_SHORT).show();
+    }
 
 
 }

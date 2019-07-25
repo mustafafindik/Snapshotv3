@@ -42,9 +42,8 @@ public class SnapBarView extends FrameLayout implements ViewPager.OnPageChangeLi
         mProfileBtn = findViewById(R.id.bar_profile_btn);
         mAddFriendsBtn = findViewById(R.id.bar_add_friend_btn);
         mRotateCamera = findViewById(R.id.bar_rotate_camera_btn);
-        mAddFriendsBtn.setVisibility(GONE);
         mTitle = findViewById(R.id.bar_title);
-        mLine = findViewById(R.id.bar_line);
+
 
     }
 
@@ -86,27 +85,22 @@ public class SnapBarView extends FrameLayout implements ViewPager.OnPageChangeLi
         Size size = MainActivity.size;
         float x = size.getWidth();
 
-        mLine.setVisibility(GONE);
+
         mRotateCamera.setVisibility(GONE);
         if (position == 0) {
 
             if (positionOffsetPixels < x / 2) {
                 float contL = (float) Math.pow(positionOffset, 0.25);
 
-                mAddFriendsBtn.setVisibility(VISIBLE);
-                mAddFriendsBtn.setAlpha((float) (1 - (contL)));
-
                 mTitle.setText("Arkadaşlar");
                 mTitle.setAlpha((float) (1 - (contL)));
+
             } else if (positionOffsetPixels == x / 2) {
-                mAddFriendsBtn.setVisibility(GONE);
+
                 mTitle.setAlpha(0);
+
             } else {
                 float contR = (float) Math.pow(positionOffset, 4);
-                mAddFriendsBtn.setVisibility(GONE);
-
-                mLine.setVisibility(VISIBLE);
-                mLine.setAlpha((float) (contR));
 
                 mRotateCamera.setVisibility(VISIBLE);
                 mRotateCamera.setAlpha((float) contR);
@@ -125,8 +119,7 @@ public class SnapBarView extends FrameLayout implements ViewPager.OnPageChangeLi
                 mRotateCamera.setVisibility(VISIBLE);
                 mRotateCamera.setAlpha((float) 1 - contL);
 
-                mLine.setVisibility(VISIBLE);
-                mLine.setAlpha((float) 1 - contL);
+
             } else if (positionOffsetPixels == x / 2) {
                 mTitle.setAlpha(0);
             } else {
