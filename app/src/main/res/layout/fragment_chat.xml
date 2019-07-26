@@ -5,6 +5,16 @@ android:layout_height="match_parent"
 xmlns:tools="http://schemas.android.com/tools"
 tools:background="@color/light_blue">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/chat_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+    </RelativeLayout>
 
 
 <View
@@ -13,4 +23,12 @@ tools:background="@color/light_blue">
     android:layout_marginTop="80dp"
     android:background="@drawable/chat_round_bg"
     />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chat_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/chat_top_bar"
+        android:layout_height="match_parent" />
+
+    </RelativeLayout>
 </FrameLayout>
