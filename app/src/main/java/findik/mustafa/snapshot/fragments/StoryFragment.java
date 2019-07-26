@@ -41,12 +41,12 @@ public class StoryFragment  extends Fragment {
         sStoryRecylerview.setHasFixedSize(true);
         sStoryRecylerview.setLayoutManager(mLiner);
         sStoryRecylerview.setAdapter(storyAdapter);
-        loadMessages();
+        loadStories();
 
         return view;
     }
 
-    private void loadMessages() {
+    private void loadStories() {
 
         for (int i = 0; i < 5; i++) {
             Story story = new Story();
