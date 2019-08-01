@@ -1,5 +1,6 @@
 package findik.mustafa.snapshot.adapters;
 
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +51,9 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
 
         holder.username.setText(UserName);
         holder.chattime.setText(time);
+        if (chat.getRead()){
+            holder.username.setTypeface(null, Typeface.BOLD);
+        }
 
     }
 

@@ -1,6 +1,8 @@
 package findik.mustafa.snapshot.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +46,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder
         return new StoryAdapter.MyViewHolder(itemView);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(final StoryAdapter.MyViewHolder holder, int position) {
         final Story story = stories.get(position);
@@ -70,6 +73,12 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder
                         Picasso.get().load(R.color.light_grey).into(holder.userPhoto);
                     }
                 });
+
+        if(!story.getLook()){
+            holder.username.setTypeface(null, Typeface.BOLD);
+            holder.userPhoto.setBorderColor(R.color.light_blue);
+            holder.userPhoto.setBorderWidth(8);
+        }
     }
 
 

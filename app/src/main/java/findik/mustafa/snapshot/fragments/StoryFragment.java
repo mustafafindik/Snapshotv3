@@ -48,17 +48,31 @@ public class StoryFragment  extends Fragment {
 
     private void loadStories() {
 
-        for (int i = 0; i < 5; i++) {
-            Story story = new Story();
 
-            story.setUserName("Kullanıcı " +i);
-            story.setUserId(i+"");
-            story.setStoryId((i*i)+"");
-            story.setStoryDate("8:24 AM");
+        Story story1 = new Story();
+        story1.setUserName("Nazım Hikmet");;
+        story1.setUserId("1");
+        story1.setStoryId("1");
+        story1.setStoryDate("8:24 AM");
+        story1.setLook(false);
+        storyList.add(story1);
 
+        Story story2 = new Story();
+        story2.setUserName("Cemal Süreya");;
+        story2.setUserId("2");
+        story2.setStoryId("2");
+        story2.setStoryDate("22:33 PM");
+        story2.setLook(true);
+        storyList.add(story2);
 
-            storyList.add(story);
-        }
+        Story story3 = new Story();
+        story3.setUserName("Atilla İlhan");;
+        story3.setUserId("3");
+        story3.setStoryId("3");
+        story3.setStoryDate("4:24 AM");
+        story3.setLook(true);
+        storyList.add(story3);
+
 
         storyAdapter.notifyDataSetChanged();
         sStoryRecylerview.scrollToPosition(storyList.size() - 1);

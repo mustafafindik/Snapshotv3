@@ -3,16 +3,18 @@ package findik.mustafa.snapshot.classes;
 public class Story {
 
     private String userImage,userName,storyDate,storyId,userId;
+    private Boolean IsLook;
 
     public Story() {
     }
 
-    public Story(String userImage, String userName, String storyDate, String storyId, String userId) {
+    public Story(String userImage, String userName, String storyDate, String storyId, String userId,Boolean IsLook) {
         this.userImage = userImage;
         this.userName = userName;
         this.storyDate = storyDate;
         this.storyId = storyId;
         this.userId = userId;
+        this.IsLook=IsLook;
     }
 
     public String getUserImage() {
@@ -53,5 +55,13 @@ public class Story {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public Boolean getLook() {
+        return IsLook;
+    }
+
+    public void setLook(Boolean look) {
+        IsLook = look;
     }
 }

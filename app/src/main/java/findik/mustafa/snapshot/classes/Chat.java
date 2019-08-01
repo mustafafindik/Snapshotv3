@@ -3,16 +3,18 @@ package findik.mustafa.snapshot.classes;
 public class Chat {
 
     private String fromUsername ,chatDate, chatId,userId,fromUserid;
+    private Boolean IsRead;
 
     public Chat() {
     }
 
-    public Chat(String fromUsername, String chatDate, String chatId, String userId, String fromUserid) {
+    public Chat(String fromUsername, String chatDate, String chatId, String userId, String fromUserid,Boolean IsRead) {
         this.fromUsername = fromUsername;
         this.chatDate = chatDate;
         this.chatId = chatId;
         this.userId = userId;
         this.fromUserid = fromUserid;
+        this.IsRead = IsRead;
     }
 
     public String getFromUsername() {
@@ -53,5 +55,13 @@ public class Chat {
 
     public void setFromUserid(String fromUserid) {
         this.fromUserid = fromUserid;
+    }
+
+    public Boolean getRead() {
+        return IsRead;
+    }
+
+    public void setRead(Boolean read) {
+        IsRead = read;
     }
 }

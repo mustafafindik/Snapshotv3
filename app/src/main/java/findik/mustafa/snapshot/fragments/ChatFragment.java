@@ -49,15 +49,36 @@ public class ChatFragment extends Fragment {
     }
 
     private void loadStories() {
-        for (int i = 0; i < 5; i++) {
-            Chat chat = new Chat();
 
-            chat.setFromUsername("Kullanıcı " +i);;
-            chat.setChatDate(i +" dk önce");
+        Chat chatUser1 = new Chat();
+        chatUser1.setFromUsername("Nazım Hikmet");;
+        chatUser1.setChatDate("10 dk önce");
+        chatUser1.setRead(true);
+        chatList.add(chatUser1);
 
+        Chat chatUser2 = new Chat();
+        chatUser2.setFromUsername("Orhan Veli");;
+        chatUser2.setChatDate("10 dk önce");
+        chatUser2.setRead(true);
+        chatList.add(chatUser2);
 
-            chatList.add(chat);
-        }
+        Chat chatUser3 = new Chat();
+        chatUser3.setFromUsername("Atilla İlhan");;
+        chatUser3.setChatDate("12dk önce");
+        chatUser3.setRead(false);
+        chatList.add(chatUser3);
+
+        Chat chatUser4 = new Chat();
+        chatUser4.setFromUsername("Halide Edip");;
+        chatUser4.setChatDate("50 dk önce");
+        chatUser4.setRead(false);
+        chatList.add(chatUser4);
+
+        Chat chatUser5 = new Chat();
+        chatUser5.setFromUsername("Cemal Süreya");;
+        chatUser5.setChatDate("2 saat önce");
+        chatUser5.setRead(false);
+        chatList.add(chatUser5);
 
         chatAdapter.notifyDataSetChanged();
         cChatReyclerview.scrollToPosition(chatList.size() - 1);
