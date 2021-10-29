@@ -2,5 +2,5 @@
 
 ## SnapChat Clone For Android 
 
-<img src="https://i.imgur.com/dp5MkZN.png" height="50%"> <img src="https://i.imgur.com/xkHjBpI.gif" width="20%" height="20%">
+<img src="https://i.imgur.com/dp5MkZN.png" height="10%"> <img src="https://i.imgur.com/xkHjBpI.gif" width="20%" height="20%">
 
